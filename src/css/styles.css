@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #111111;
+}
+
+.animation {
+  color: whitesmoke;
+  display: block;
+  font-size: 18px;
+  font-family: 'Helvetica';
+  text-shadow: 0 0 1px white;
+  position: absolute;
+  right: 25px;
+  user-select: none;
+  z-index: 1;
+  transform: translateY(100vh);
+  animation-name: move;
+  animation-timing-function: ease-out;
+  will-change: transform;
+  will-change: opacity;
+  cursor: default;
+  pointer-events: none;
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 0;
+  }
+}

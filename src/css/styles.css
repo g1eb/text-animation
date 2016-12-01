@@ -24,6 +24,7 @@ body {
   right: 25px;
   user-select: none;
   z-index: 1;
+  opacity: 0;
   transform: translateY(100vh);
   animation-name: move;
   animation-timing-function: ease-out;
@@ -35,10 +36,6 @@ body {
 }
 
 @keyframes move {
-  0% {
-    opacity: 0;
-    transform: translateY(100vh);
-  }
   25% {
     opacity: 1;
   }
@@ -49,7 +46,6 @@ body {
     opacity: 0;
   }
   100% {
-    opacity: 0;
     transform: none;
   }
 }

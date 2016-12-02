@@ -20,9 +20,8 @@ body {
   font-size: 18px;
   font-family: 'Helvetica';
   text-shadow: 0 0 1px white;
-  position: absolute;
-  right: 25px;
   user-select: none;
+  position: absolute;
   z-index: 1;
   opacity: 0;
   transform: translateY(100vh);
@@ -36,6 +35,10 @@ body {
 }
 
 @keyframes move {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
   25% {
     opacity: 1;
   }
@@ -43,9 +46,10 @@ body {
     opacity: 1;
   }
   75% {
-    opacity: 0;
+    opacity: 1;
   }
   100% {
+    opacity: 0;
     transform: none;
   }
 }

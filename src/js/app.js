@@ -14,7 +14,7 @@ var app = {
         element.className = 'animation-element';
         container.appendChild(element);
         app.animate(element);
-      }, Math.floor(Math.random() * 15000));
+      }, Math.floor(Math.random() * 15) * 1000);
     }
   },
 

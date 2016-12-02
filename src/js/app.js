@@ -9,10 +9,12 @@ var app = {
     document.body.appendChild(container);
     container.className = 'animation-container';
     for ( var i = 0; i < 50; i++ ) {
-      var element = document.createElement('span');
-      element.className = 'animation-element';
-      container.appendChild(element);
-      app.animate(element);
+      window.setTimeout(function () {
+        var element = document.createElement('span');
+        element.className = 'animation-element';
+        container.appendChild(element);
+        app.animate(element);
+      }, Math.floor(Math.random() * 15000));
     }
   },
 

@@ -14,30 +14,27 @@ body {
   z-index: 1;
 }
 
-.animation-container .animation-element {
+.animation-container span {
   color: whitesmoke;
   display: block;
   font-size: 18px;
   font-family: 'Helvetica';
   text-shadow: 0 0 1px white;
-  user-select: none;
   position: absolute;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
   z-index: 1;
   opacity: 0;
-  transform: translateY(100vh);
-  animation-name: move;
+  will-change: transform, opacity;
   animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
-  will-change: transform;
-  will-change: opacity;
-  cursor: default;
-  pointer-events: none;
+  animation-name: move;
 }
 
 @keyframes move {
   0% {
-    transform: translateY(100vh);
     opacity: 0;
+    transform: translateY(100vh);
   }
   25% {
     opacity: 1;
@@ -46,7 +43,7 @@ body {
     opacity: 1;
   }
   75% {
-    opacity: 1;
+    opacity: 0;
   }
   100% {
     opacity: 0;

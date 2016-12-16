@@ -7,12 +7,12 @@ var cssnano = require('gulp-cssnano');
  
 gulp.task('build', function () {
 
-  gulp.src('src/js/**/*.js')
+  gulp.src('src/*.js')
     .pipe(uglify())
     .pipe(concat('scripts.min.js'))
     .pipe(gulp.dest('./dist'));
 
-  gulp.src('src/css/**/*.css')
+  gulp.src('src/*.css')
     .pipe(cssnano())
     .pipe(concat('styles.min.css'))
     .pipe(gulp.dest('./dist'));

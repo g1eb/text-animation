@@ -31,6 +31,7 @@
 
     "watch:css": "onchange 'src/scss/*.scss' -- npm run build:css",
     "watch:js": "onchange 'src/js/*.js' -- npm run build:js",
+    "watch:all": "npm-run-all --parallel watch:css watch:js",
 
     "build:css": "npm run scss && npm run autoprefixer && npm run cssmin",
     "build:img": "imagemin src/img/* -o dist/img",
@@ -38,7 +39,7 @@
     "build": "npm run clean && npm-run-all build:css build:img build:js",
 
     "serve": "browser-sync start --server --files 'dist' --logPrefix 'G1B' --logConnections",
-    "start": "npm-run-all build serve"
+    "start": "npm run build && npm-run-all --parallel serve watch:all"
   },
   "author": "Gleb <mail@g1eb.com> (https://g1eb.com)",
   "license": "MIT"

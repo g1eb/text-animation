@@ -21,11 +21,11 @@
     "clean": "rimraf dist",
 
     "scss": "node-sass --output-style compressed -o dist/css src/scss",
+    "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers 'last 2 versions' -r dist/css/*",
     "cssmin": "cat dist/css/* | cssmin > dist/css/styles.min.css",
-    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
 
     "lint": "eslint src/js",
-    "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/scripts.js",
+    "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/text-animation.js",
     "minify": "uglifyjs src/js/*.js -m -c -o dist/js/scripts.min.js",
 
     "build:css": "npm run scss && npm run autoprefixer && npm run cssmin",

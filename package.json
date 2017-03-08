@@ -9,6 +9,7 @@
     "concurrently": "^3.4.0",
     "cssmin": "^0.4.3",
     "eslint": "^3.17.1",
+    "imagemin-cli": "^3.0.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
     "postcss-cli": "^2.6.0",
@@ -27,9 +28,9 @@
     "minify": "uglifyjs src/js/*.js -m -c -o dist/js/scripts.min.js",
 
     "build:css": "npm run scss && npm run autoprefixer && npm run cssmin",
+    "build:img": "imagemin src/img/* -o dist/img",
     "build:js": "npm run lint && npm run uglify && npm run minify",
-    "build": "npm run clean && npm run build:css && npm run build:js",
-
+    "build": "npm run clean && npm-run-all build:css build:img build:js",
     "serve": "serve .",
     "start": "npm-run-all build serve"
   },

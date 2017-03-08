@@ -1,21 +1,38 @@
 {
-  "name": "commit-animation",
+  "name": "text-animation",
   "version": "0.0.1",
-  "description": "Github commit animation.",
+  "description": "Floating text animation.",
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-angular-embed-templates": "^2.3.0",
-    "gulp-concat": "^2.6.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-filter": "^4.0.0",
-    "gulp-main-bower-files": "^1.5.3",
-    "gulp-uglify": "^1.5.3"
+    "autoprefixer": "^6.7.6",
+    "concurrently": "^3.4.0",
+    "cssmin": "^0.4.3",
+    "eslint": "^3.17.1",
+    "node-sass": "^4.5.0",
+    "npm-run-all": "^4.0.2",
+    "postcss-cli": "^2.6.0",
+    "rimraf": "^2.6.1",
+    "uglify-js": "^2.8.9"
   },
   "scripts": {
-    "build": "gulp build"
+    "clean": "rimraf dist",
+
+    "scss": "node-sass --output-style compressed -o dist/css src/scss",
+    "cssmin": "cat dist/css/* | cssmin > dist/css/styles.min.css",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+
+    "lint": "eslint src/js",
+    "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/scripts.js",
+    "minify": "uglifyjs src/js/*.js -m -c -o dist/js/scripts.min.js",
+
+    "build:css": "npm run scss && npm run autoprefixer && npm run cssmin",
+    "build:js": "npm run lint && npm run uglify && npm run minify",
+    "build": "npm run clean && npm run build:css && npm run build:js",
+
+    "serve": "serve .",
+    "start": "npm-run-all build serve"
   },
-  "author": "Gleb <git@gleb.nl>",
+  "author": "Gleb <mail@g1eb.com> (https://g1eb.com)",
   "license": "MIT"
 }

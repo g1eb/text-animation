@@ -6,6 +6,7 @@
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.7.6",
+    "browser-sync": "^2.18.8",
     "concurrently": "^3.4.0",
     "cssmin": "^0.4.3",
     "eslint": "^3.17.1",
@@ -31,7 +32,8 @@
     "build:img": "imagemin src/img/* -o dist/img",
     "build:js": "npm run lint && npm run uglify && npm run minify",
     "build": "npm run clean && npm-run-all build:css build:img build:js",
-    "serve": "serve .",
+
+    "serve": "browser-sync start --server --files 'dist' --logPrefix 'G1B' --logConnections",
     "start": "npm-run-all build serve"
   },
   "author": "Gleb <mail@g1eb.com> (https://g1eb.com)",

@@ -27,7 +27,7 @@ var app = {
   animate: function (element) {
     var character = app.chars[Math.floor(Math.random() * app.chars.length)];
     var duration = Math.floor(Math.random() * 15) + 1;
-    var offset = Math.floor(Math.random() * (30 - duration * 2)) + 3;
+    var offset = Math.floor(Math.random() * (50 - duration * 2)) + 3;
     var size = 10 + (15 - duration);
     element.style.cssText = 'right:'+offset+'vw; font-size:'+size+'px;animation-duration:'+duration+'s';
     element.innerHTML = character;

@@ -13,6 +13,7 @@
     "imagemin-cli": "^3.0.0",
     "node-sass": "^4.5.0",
     "npm-run-all": "^4.0.2",
+    "onchange": "^3.2.1",
     "postcss-cli": "^2.6.0",
     "rimraf": "^2.6.1",
     "uglify-js": "^2.8.9"
@@ -27,6 +28,9 @@
     "lint": "eslint src/js",
     "uglify": "mkdir -p dist/js && uglifyjs src/js/*.js -m -o dist/js/text-animation.js",
     "minify": "uglifyjs src/js/*.js -m -c -o dist/js/scripts.min.js",
+
+    "watch:css": "onchange 'src/scss/*.scss' -- npm run build:css",
+    "watch:js": "onchange 'src/js/*.js' -- npm run build:js",
 
     "build:css": "npm run scss && npm run autoprefixer && npm run cssmin",
     "build:img": "imagemin src/img/* -o dist/img",
